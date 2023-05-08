@@ -12,17 +12,24 @@
       <h1>August99</h1>
       <input type="text" id="search-bar" placeholder="Enter keyword" />
 
-      <ul id="launches-list">
-     
-      </ul>
-      <div id="loading-indicator">
+      <ul id="launches-list"></ul>
 
+      <div id="loading-indicator">
         <span>Loading...</span>
       </div>
-  
-      <div>
-        No more data can be fetched.
+
+      <div id="loading-indicator-bottom">
+        <span>Loading...</span>
       </div>
+
+      <div id="no-results-message" style="display: none;">
+        No launches found.
+      </div>
+
+      <div id="no-more-results-message" style="display: none;">
+        No more launches to load.
+      </div>
+
     </div>
 
     <template id="launch-item-template">
@@ -42,6 +49,8 @@
         </div>
       </li>
     </template>
+
+    <div id="no-more-data" style="display: none;">No more data to load</div>
 
     <script src="script/script.js"></script>
   </body>

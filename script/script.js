@@ -1,18 +1,24 @@
 const API_URL = "https://api.spacexdata.com/v4/launches/";
 const launchesList = document.querySelector("#launches-list");
 const loadingIndicator = document.querySelector("#loading-indicator");
-const noMoreDataMessage = document.querySelector("#no-more-data-message");
+const loadingIndicatorBottom = document.querySelector(
+  "#loading-indicator-bottom"
+);
 const launchItemTemplate = document.querySelector("#launch-item-template");
 const searchInput = document.querySelector("#search-bar");
+const noMoreData = document.querySelector("#no-more-data");
 
 let loading = false;
 let page = 1;
-const maxPages = 1;
+const maxPages = 5;
 
 function getLaunches() {
   if (loading || page > maxPages) return;
   loading = true;
   loadingIndicator.style.display = "block";
+  if (page === maxPages) {
+    loadingIndicatorBottom.style.display = "block";
+  }
 
   fetch(API_URL + "?page=" + page)
     .then((response) => response.json())
@@ -37,9 +43,12 @@ function getLaunches() {
             launchImage.src = launch.links.patch.small;
 
             launchesList.appendChild(launchItem);
-          }, index * 200); // delay each item by 500ms
+          }, index * 500); // delay each item by 500ms
         });
+      } else if (page === 1) {
+        noMoreData.style.display = "block";
       } else {
+        loadingIndicatorBottom.style.display = "none";
         noMoreData.style.display = "block";
       }
     })
