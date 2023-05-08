@@ -10,7 +10,7 @@ const noMoreData = document.querySelector("#no-more-data");
 
 let loading = false;
 let page = 1;
-const maxPages = 5;
+const maxPages = 1;
 
 function getLaunches() {
   if (loading || page > maxPages) return;
