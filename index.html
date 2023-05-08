@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>August99</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>August99</h1>
+      <input type="text" id="search-bar" placeholder="Enter keyword" />
+
+      <ul id="launches-list">
+     
+      </ul>
+      <div id="loading-indicator">
+
+        <span>Loading...</span>
+      </div>
+  
+      <div>
+        No more data can be fetched.
+      </div>
+    </div>
+
+    <template id="launch-item-template">
+      <li class="launch-item">
+        <div class="launch-image-container">
+          <img class="launch-image" src="" alt="Launch Image" />
+        </div>
+        <div class="launch-details-container">
+          <div class="flight-info-container">
+            <p class="flight-number"></p>&nbsp;
+            <p class="mission-name"></p>&nbsp;
+            <p class="launch-year"></p>
+          </div>
+          <div class="details-container">
+            <p class="details"></p>
+          </div>
+        </div>
+      </li>
+    </template>
+
+    <script src="script/script.js"></script>
+  </body>
+</html>
